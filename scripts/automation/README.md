@@ -19,6 +19,13 @@ caller can watch them via the CLI or `curl`.
   Lumbridge Swamp mine (safe, no monsters).
 - `mining_powermine_iron.sh` -- Mining N→70 power-mining Iron at the Isle of
   Souls mine (members-only, safe). Drops ore and gems on a full inventory.
+- `woodcutting_train_trees.sh` -- Woodcutting 1→15 on regular trees around
+  Lumbridge. Drops logs on a full inventory.
+- `woodcutting_train_oaks.sh` -- Woodcutting 15→35 on oak trees around
+  Lumbridge. Drops oak logs on a full inventory.
+- `woodcutting_train_teaks.sh` -- Woodcutting 35→70 power-chopping teak trees
+  on the Isle of Souls (members-only, safe, reached via the Soul Wars
+  minigame teleport). Drops teak logs on a full inventory.
 - `combat_train_chickens_melee.sh` / `combat_train_chickens_magic.sh` --
   zero-risk combat/Magic training on Lumbridge chickens.
 - `agility_rooftop_draynor.sh` / `agility_rooftop_al_kharid.sh` /
