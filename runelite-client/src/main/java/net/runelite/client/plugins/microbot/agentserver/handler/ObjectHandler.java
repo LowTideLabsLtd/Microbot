@@ -140,6 +140,22 @@ public class ObjectHandler extends AgentHandler {
 		map.put("type", obj.getTileObjectType().name());
 		map.put("reachable", obj.isReachable());
 
+		try {
+			var comp = obj.getObjectComposition();
+			String[] actions = (comp.getImpostorIds() != null && comp.getImpostor() != null)
+					? comp.getImpostor().getActions()
+					: comp.getActions();
+			List<String> actionList = new ArrayList<>();
+			if (actions != null) {
+				for (String a : actions) {
+					if (a != null) actionList.add(a);
+				}
+			}
+			map.put("actions", actionList);
+		} catch (Exception e) {
+			map.put("actions", new ArrayList<String>());
+		}
+
 		WorldPoint loc = obj.getWorldLocation();
 		if (loc != null) {
 			Map<String, Integer> position = new LinkedHashMap<>();
