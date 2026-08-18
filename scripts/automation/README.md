@@ -38,6 +38,11 @@ caller can watch them via the CLI or `curl`.
   after two blind attempts got the character killed.
 - `dialogue_advance.sh` -- clicks through NPC dialogue until it ends or
   hits a "select an option" prompt.
+- `prayer_chaos_altar_offer.sh` -- offers all Dragon bones in inventory on
+  the Wilderness Chaos Altar (level 38 Wilderness, reached via Burning
+  amulet -> Lava Maze) for 3.5x Prayer XP with a ~50% bone-preservation
+  chance. One inventory-load only; travel/banking/return are handled
+  separately (see docs/AGENT_FIELD_NOTES.md for the route).
 
 ## Notes
 
