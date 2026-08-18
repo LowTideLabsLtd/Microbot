@@ -55,6 +55,7 @@ Inventory:
   inventory                              List inventory items
   inventory interact <name> <action>     Use/eat/equip an item
   inventory drop <name> [--all]          Drop item(s)
+  inventory use-on-object <item> <objectId>  Use unnoted item on a game object (e.g. bones on an altar)
 
 NPCs:
   npcs [--name Guard] [--name-contains Guar] [--id 3265] [--distance 20] [--limit N]
@@ -307,6 +308,11 @@ case "$1" in
                 all="false"
                 [[ $# -ge 4 ]] && [[ "$4" == "--all" ]] && all="true"
                 do_post "${BASE}/inventory/drop" "{\"name\":\"${escaped_name}\",\"all\":${all}}"
+                ;;
+            use-on-object)
+                [[ $# -lt 4 ]] && { echo '{"error":"Usage: microbot-cli inventory use-on-object <item> <objectId>"}'; exit 1; }
+                escaped_item=$(json_escape "$3")
+                do_post "${BASE}/inventory/use-on-object" "{\"item\":\"${escaped_item}\",\"objectId\":$4}"
                 ;;
             *) usage ;;
         esac

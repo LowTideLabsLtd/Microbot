@@ -217,6 +217,18 @@ Body: `{"name": "Logs"}` or `{"name": "Logs", "all": true}`
 ./microbot-cli inventory drop "Logs" --all
 ```
 
+#### POST /inventory/use-on-object
+
+Uses an unnoted inventory item on a game object (e.g. offering bones on an
+altar, or any other "use X on Y" interaction). There's no name-based object
+lookup here — resolve the target's `id` via `GET /objects` first.
+
+Body: `{"item": "Dragon bones", "objectId": 40758}`
+
+```bash
+./microbot-cli inventory use-on-object "Dragon bones" 40758
+```
+
 ### NPCs
 
 #### GET /npcs

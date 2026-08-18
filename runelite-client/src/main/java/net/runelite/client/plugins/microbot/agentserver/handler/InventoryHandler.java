@@ -35,6 +35,9 @@ public class InventoryHandler extends AgentHandler {
 			case "/drop":
 				handleDrop(exchange);
 				break;
+			case "/use-on-object":
+				handleUseOnObject(exchange);
+				break;
 			default:
 				sendJson(exchange, 404, errorResponse("Unknown path: /inventory" + sub));
 		}
@@ -138,6 +141,43 @@ public class InventoryHandler extends AgentHandler {
 		response.put("success", success);
 		response.put("name", name);
 		response.put("droppedAll", Boolean.TRUE.equals(all));
+		sendJson(exchange, 200, response);
+	}
+
+	private void handleUseOnObject(HttpExchange exchange) throws IOException {
+		try {
+			requirePost(exchange);
+		} catch (HttpMethodException e) {
+			sendJson(exchange, 405, errorResponse(e.getMessage()));
+			return;
+		}
+
+		Map<String, Object> body;
+		try {
+			body = readJsonBody(exchange);
+		} catch (Exception e) {
+			sendJson(exchange, 400, errorResponse("Invalid JSON body"));
+			return;
+		}
+
+		String item = (String) body.get("item");
+		if (item == null || item.isEmpty()) {
+			sendJson(exchange, 400, errorResponse("Missing required field: item"));
+			return;
+		}
+
+		Number objectIdNum = (Number) body.get("objectId");
+		if (objectIdNum == null) {
+			sendJson(exchange, 400, errorResponse("Missing required field: objectId"));
+			return;
+		}
+
+		boolean success = Rs2Inventory.useUnNotedItemOnObject(item, objectIdNum.intValue());
+
+		Map<String, Object> response = new LinkedHashMap<>();
+		response.put("success", success);
+		response.put("item", item);
+		response.put("objectId", objectIdNum.intValue());
 		sendJson(exchange, 200, response);
 	}
 
