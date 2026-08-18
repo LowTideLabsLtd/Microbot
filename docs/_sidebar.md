@@ -2,6 +2,7 @@
     - Install Microbot
 - [**Development**](Development.md)
     - [**Agent Script Tools**](AGENT_SCRIPT_TOOLS.md)
+    - [**Agent Field Notes**](AGENT_FIELD_NOTES.md)
     - **API**
       * [Rs2Bank](api/apidocs/net/runelite/client/plugins/microbot/util/bank/Rs2Bank.html)
       * [Rs2Camera](api/apidocs/net/runelite/client/plugins/microbot/util/camera/Rs2Camera.html)

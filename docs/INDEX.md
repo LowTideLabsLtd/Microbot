@@ -6,6 +6,7 @@
 - [Queryable API Guide](../runelite-client/src/main/java/net/runelite/client/plugins/microbot/api/QUERYABLE_API.md)
 - [Runtime CLI](MICROBOT_CLI.md)
 - [Agent Server](AGENT_SERVER.md)
+- [Agent Field Notes](AGENT_FIELD_NOTES.md)
 - [Agentic Testing Loop](AGENTIC_TESTING_LOOP.md)
 - [Entity Guides](entity-guides/README.md)
 - [Gallery](gallery.md)
