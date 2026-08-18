@@ -43,6 +43,10 @@ caller can watch them via the CLI or `curl`.
   amulet -> Lava Maze) for 3.5x Prayer XP with a ~50% bone-preservation
   chance. One inventory-load only; travel/banking/return are handled
   separately (see docs/AGENT_FIELD_NOTES.md for the route).
+- `magic_train_firestrike_cows.sh` -- trains Magic (and passively
+  Hitpoints via combat XP) by autocasting a combat spell at Lumbridge
+  cow-field cows. Assumes autocast and a fire-providing staff are
+  already set up so only Air runes are consumed. Zero-threat target.
 
 ## Notes
 
